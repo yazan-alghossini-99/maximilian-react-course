@@ -13,3 +13,20 @@ function App() {
 }
 
 export default App;
+import { useState } from 'react';
+import './App.css';
+import CounterDisplay from './components/CounterDisplay';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="app-container">
+      <h1>React Learning Project</h1>
+      <CounterDisplay count={count} />
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default App;
