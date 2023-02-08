@@ -95,3 +95,39 @@ function App() {
 }
 
 export default App;
+import { useState, useEffect } from 'react';
+import './App.css';
+import CounterDisplay from './components/CounterDisplay';
+import UserCard from './components/UserCard';
+import useDocumentTitle from './hooks/useDocumentTitle';
+import { fetchUserData } from './services/api';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
+
+  useDocumentTitle('React Learning Project');
+
+  useEffect(() => {
+    fetchUserData()
+      .then(setUser)
+      .catch(err => setError(err.message));
+  }, []);
+
+  return (
+    <div className="app-container">
+      <h1>React Learning Project</h1>
+      {error ? <p style={{color: 'red'}}>{error}</p> : <UserCard user={user} />}
+      <CounterDisplay count={count} />
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <div style={{ marginTop: '20px' }}>
+        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Type something..." />
+        <p>You typed: {inputValue}</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
