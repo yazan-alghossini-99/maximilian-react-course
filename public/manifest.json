@@ -1,0 +1,6 @@
+{
+  "short_name": "ReactApp",
+  "name": "React Learning Project",
+  "start_url": "./",
+  "display": "standalone"
+}
