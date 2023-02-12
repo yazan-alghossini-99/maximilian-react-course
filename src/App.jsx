@@ -150,3 +150,20 @@ function App() {
 }
 
 export default App;
+import { useState } from 'react';
+import useLocalStorage from './hooks/useLocalStorage';
+import ExpensiveList from './components/ExpensiveList';
+
+function App() {
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [items, setItems] = useState(['banana', 'apple', 'cherry']);
+
+  return (
+    <div className={pp theme-}>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Toggle Theme</button>
+      <ExpensiveList items={items} />
+    </div>
+  );
+}
+
+export default App;
