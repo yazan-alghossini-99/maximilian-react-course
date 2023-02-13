@@ -167,3 +167,24 @@ function App() {
 }
 
 export default App;
+import { ThemeProvider } from './context/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import Home from './pages/Home';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <div className="app">
+        <header>
+          <h1>React Learning Project</h1>
+          <ThemeToggle />
+        </header>
+        <main>
+          <Home />
+        </main>
+      </div>
+    </ThemeProvider>
+  );
+}
+
+export default App;
