@@ -33,3 +33,24 @@ function Home() {
 }
 
 export default Home;
+import { useState } from 'react';
+import ComplexCounter from '../components/ComplexCounter';
+import LoginForm from '../components/LoginForm';
+import HeavyComponent from '../components/HeavyComponent';
+
+function Home() {
+  const [count, setCount] = useState(0);
+  const handleLogin = (data) => console.log('Login:', data);
+
+  return (
+    <div>
+      <h2>Welcome to the Home Page</h2>
+      <button onClick={() => setCount(c => c + 1)}>Update Parent State ({count})</button>
+      <ComplexCounter />
+      <LoginForm onSubmit={handleLogin} />
+      <HeavyComponent value={10} />
+    </div>
+  );
+}
+
+export default Home;
