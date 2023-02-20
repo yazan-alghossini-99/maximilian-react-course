@@ -188,3 +188,27 @@ function App() {
 }
 
 export default App;
+import { ThemeProvider } from './context/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import ErrorBoundary from './components/ErrorBoundary';
+import Home from './pages/Home';
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="app">
+          <header>
+            <h1>React Learning Project</h1>
+            <ThemeToggle />
+          </header>
+          <main>
+            <Home />
+          </main>
+        </div>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
+}
+
+export default App;
