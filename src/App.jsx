@@ -212,3 +212,33 @@ function App() {
 }
 
 export default App;
+import { Suspense, lazy } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
+import ErrorBoundary from './components/ErrorBoundary';
+import Home from './pages/Home';
+
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="app">
+          <header>
+            <h1>React Learning Project</h1>
+            <ThemeToggle />
+          </header>
+          <main>
+            <Suspense fallback={<div>Loading Dashboard...</div>}>
+              <Home />
+              <Dashboard />
+            </Suspense>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
+}
+
+export default App;
