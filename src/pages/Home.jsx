@@ -54,3 +54,15 @@ function Home() {
 }
 
 export default Home;
+import UserListQuery from '../components/UserListQuery';
+
+function Home() {
+  return (
+    <div>
+      <h2>Home Page</h2>
+      <UserListQuery />
+    </div>
+  );
+}
+
+export default Home;
