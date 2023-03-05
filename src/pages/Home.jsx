@@ -66,3 +66,15 @@ function Home() {
 }
 
 export default Home;
+import RegistrationForm from '../components/RegistrationForm';
+
+function Home() {
+  return (
+    <div>
+      <h2>Home Page</h2>
+      <RegistrationForm />
+    </div>
+  );
+}
+
+export default Home;
