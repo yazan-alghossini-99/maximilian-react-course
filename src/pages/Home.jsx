@@ -78,3 +78,15 @@ function Home() {
 }
 
 export default Home;
+import ReduxCounter from '../components/ReduxCounter';
+
+function Home() {
+  return (
+    <div>
+      <h2>Home Page</h2>
+      <ReduxCounter />
+    </div>
+  );
+}
+
+export default Home;
