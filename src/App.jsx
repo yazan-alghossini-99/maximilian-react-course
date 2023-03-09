@@ -275,3 +275,22 @@ function App() {
 }
 
 export default App;
+import { Provider } from 'react-redux';
+import { store } from './store';
+import Home from './pages/Home';
+import Footer from './components/Footer';
+
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="app">
+        <main>
+          <Home />
+        </main>
+        <Footer />
+      </div>
+    </Provider>
+  );
+}
+
+export default App;
